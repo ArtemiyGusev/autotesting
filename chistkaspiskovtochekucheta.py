@@ -1,14 +1,14 @@
-import time
-
 from selenium.common.exceptions import NoSuchElementException
-
 from autotesting import autotest
 from autotesting.autotest import *
 
+print("Начат - chistkaspiskovtochekucheta")
 funclog_chistka()
-
+time.sleep(1)
 vkladka_tochkiucheta_click()
-#otkrit_spisok_tochekucheta_click()
+vkladka_information_click()
+time.sleep(1)
+vkladka_tochkiucheta_click()
 
 nomertochki = 0
 while True:
@@ -21,7 +21,7 @@ while True:
             spiski_tochkiucheta_kursor() #Курсор на первую точку учета
         except NoSuchElementException:
             pass
-
+        time.sleep(3)
         try:
             knopka_udalit_click()
         except Exception as e:

@@ -1,17 +1,20 @@
-from autotesting.chistkaspiskovtochekucheta import *
+import os
+from autotesting.chistkaspiskovpriborov import *
+print("Начат - spiskipriborov")
 d.driver.refresh()
 
 try:
-    vkladka_tochkiucheta_click()
-    spiski_tochkiucheta_kursor()
+    vkladka_pribori_click()
+    spiski_pribori_kursor()
+    time.sleep(2)
     knopka_dobavit_click()
-    naimenovanie_spiska_tochek()
+    naimenovanie_spiskov()
     time.sleep(2)
     knopka_ok_click()
     time.sleep(2)
     d.driver.refresh()
-    vkladka_tochkiucheta_click()
-    spisok_tochka_ucheta_vspiske_kursor()
+    vkladka_pribori_click()
+    spisok_vspiske_kursor()
     try:
         while True:
             knopka_dobavit_podvkladka_click()
@@ -27,3 +30,4 @@ except Exception as e:
     funclog()
 from autotesting.nastroykasboradannih import sbor_dannih
 sbor_dannih()
+os.system('tochkiucheta.py')

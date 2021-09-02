@@ -1,15 +1,7 @@
-import sys
-import time
-
 import requests
+from autotesting.chistkapriborov import *
 
-from autotesting.autotest import *
-
-try:
-    from autotesting.chistkapriborov import *
-except BaseException as e:
-    print('ТЕСТ НЕ ПРОЙДЕН Логин форма', e)
-
+print("Начат - insertpriborgroup")
 time.sleep(2)
 
 indexnedob = 0
@@ -57,11 +49,10 @@ while True:
     try:
         model_pribora_select()
     except:
-        #print("---\n" + "Успешно: " + str.kolvo_dobavlenih_priborov + "\nНе успешно: " + str.kolvo_nedobavlenih_priborov)
         print("Тест завершен")
-        perviy_pribor_vspiske_kursor() #Клик
-        from autotesting.tochkiucheta import *
-        sys.exit()
+        knopka_otmena_click()
+        from autotesting.spiskipriborov import *
+        break
     try:
         setevoy_addres()
     except:
@@ -80,3 +71,4 @@ while True:
         print(e)
         autotest.peremlog2 = str(e)
         funclog()
+print("Конец теста")

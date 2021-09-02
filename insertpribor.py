@@ -1,12 +1,6 @@
 import sys
-
-from autotesting import autotest
-from autotesting.autotest import *
-
-try:
-    from autotesting.chistkapriborov import *
-except BaseException as e:
-    pass
+from autotesting.chistkapriborov import *
+print("Начат - insertpribor")
 
 indexnedob = 1
 

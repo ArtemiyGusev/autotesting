@@ -1,11 +1,9 @@
+import time
 import traceback
 from datetime import datetime
-
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
-
-#from autotesting.Login import *
 from autotesting.Login import d
 
 peremlog2 = ""
@@ -26,6 +24,9 @@ def funclog():
 
 def funclog_chistka():
     open(filename, 'w').close()
+
+def vkladka_information_click():
+    vkladka_information_clickx = d.driver.find_element_by_xpath('//div[1]/li[1]/div/span')
 
 def vkladka_pribori_click():  # 3 #2
     vkladka_priborix = d.driver.find_element_by_css_selector('li:nth-child(3)>div>span').click()
@@ -59,22 +60,20 @@ def perviy_pribor_vspiske_kursor():  # 3
     d.driver.implicitly_wait(3)
 
 def tochka_ucheta_vspiske_kursor():
+    time.sleep(1)
     tochka_ucheta_vspiske_kursorx = d.driver.find_element_by_xpath('//div[contains(text(),"Точка №1")]')
-    d.driver.implicitly_wait(5)
     tochka_ucheta_vspiske_kursorx.click()
-    d.driver.implicitly_wait(5)
+    time.sleep(1)
     Hover3 = ActionChains(d.driver).move_to_element(tochka_ucheta_vspiske_kursorx)
-    d.driver.implicitly_wait(5)
     Hover3.perform()
     d.driver.implicitly_wait(3)
 
-def spisok_tochka_ucheta_vspiske_kursor():
+def spisok_vspiske_kursor():
+    time.sleep(1)
     spisok_tochka_ucheta_vspiske_kursorx = d.driver.find_element_by_xpath('//div[contains(text(),"Список №1")]')
-    d.driver.implicitly_wait(5)
     spisok_tochka_ucheta_vspiske_kursorx.click()
-    d.driver.implicitly_wait(5)
+    time.sleep(1)
     Hover3 = ActionChains(d.driver).move_to_element(spisok_tochka_ucheta_vspiske_kursorx)
-    d.driver.implicitly_wait(5)
     Hover3.perform()
     d.driver.implicitly_wait(3)
 
@@ -119,9 +118,13 @@ def tochkiucheta_kursor():
     Hover2.perform()
     d.driver.implicitly_wait(3)
 
-def tochkiuchuta_click():
-    tochkiucheta_clickx = d.driver.find_element_by_xpath('/html/body/div/div[1]/main/div[1]/section[1]/div[2]/div[1]/div').click()
-    d.driver.implicitly_wait(5)
+def spiski_pribori_kursor():
+    spiski_pribori_kursorx = d.driver.find_element_by_id('2_0')
+    d.driver.implicitly_wait(10)
+    Hover5 = ActionChains(d.driver).move_to_element(spiski_pribori_kursorx)
+    d.driver.implicitly_wait(10)
+    Hover5.perform()
+    d.driver.implicitly_wait(3)
 
 def spiski_tochkiucheta_kursor():
     spiski_tochkiucheta_kursorx = d.driver.find_element_by_id('3_0')
@@ -130,6 +133,10 @@ def spiski_tochkiucheta_kursor():
     d.driver.implicitly_wait(10)
     Hover4.perform()
     d.driver.implicitly_wait(3)
+
+def tochkiuchuta_click():
+    tochkiucheta_clickx = d.driver.find_element_by_xpath('/html/body/div/div[1]/main/div[1]/section[1]/div[2]/div[1]/div').click()
+    d.driver.implicitly_wait(5)
 
 
 def knopka_dobavit_click():  # 1
@@ -192,7 +199,7 @@ def naimenovanie_tochek(): #25.08 доделать
     d.driver.implicitly_wait(10)
     return naimenovanie_tochekx
 
-def naimenovanie_spiska_tochek(): #25.08 доделать
+def naimenovanie_spiskov(): #25.08 доделать
     naimenovanie_spiska_tochekx = d.driver.find_element_by_css_selector("input[type=text]:nth-child(2)")
     naimenovanie_spiska_tochekx.send_keys("Список №1")
     d.driver.implicitly_wait(10)

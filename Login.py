@@ -6,7 +6,6 @@ class d():
     options.add_argument("--start-maximized")
     driver = webdriver.Chrome(chrome_options=options)
     driver.get("http://127.0.0.1/sp/")
-    #driver.implicitly_wait(10)
     print("Переход в СП успешен")
 
 class t():

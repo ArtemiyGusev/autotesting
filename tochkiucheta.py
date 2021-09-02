@@ -1,9 +1,6 @@
-import time
-
-from autotesting import autotest
-from autotesting.autotest import *
+from selenium.common.exceptions import NoSuchElementException
 from autotesting.chistkatochekucheta import *
-
+print("Начат - tochkiucheta")
 chet1 = 0
 d.driver.refresh()
 try:
@@ -38,14 +35,13 @@ try:
     d.driver.implicitly_wait(10)
     time.sleep(1)
     pribori_podvkladka_click()
-    d.driver.implicitly_wait(10)
-    knopka_dobavit_podvkladka_click()
     try:
-        vibor_spiska_checkbox_click()
-        print("Все приборы выбраны")
-    except:
-        print("Приборы не выбраны")
-    knopka_ok_click()
+        while True:
+            knopka_dobavit_podvkladka_click()
+            vibor_spiska_checkbox_click()
+            knopka_ok_click()
+    except NoSuchElementException:
+        knopka_otmena_click()
 
     knopka_save_click()
     while True:
@@ -55,16 +51,13 @@ try:
         vkladka_tochkiucheta_click()
         time.sleep(1)
         tochka_ucheta_vspiske_kursor()
-        try:
-            knopka_dobavit_click()
-        except BaseException as e:
-            pass
-            print("FAIL1", e)
+        knopka_dobavit_click()
         try:
             model_pribora_vtochke_select()
         except Exception:
             print("Все точки учета успешно добавлены в соответствии с приборами")
-           # from autotesting.spiskitochekucheta import *
+            knopka_otmena_click()
+            from autotesting.spiskitochekucheta import *
             break
         try:
             shema_podklucheniya_select()
