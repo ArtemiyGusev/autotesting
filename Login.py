@@ -9,7 +9,7 @@ class d():
     print("Переход в СП успешен")
 
 class t():
-    tclass = d.driver.implicitly_wait(5)
+    tclass = d.driver.implicitly_wait(2)
 
 def login_admin():
     login_adminx = d.driver.find_element_by_css_selector('div.login-grid>input:nth-child(2)').send_keys("admin")

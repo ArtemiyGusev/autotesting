@@ -94,7 +94,6 @@ def knopka_udalit_click():  # 3
 
 def knopka_ok_click():  # 3 #1 #2
     knopka_ok_clickx = d.driver.find_element_by_css_selector('div.modal-footer>button:nth-child(1)').click()
-    d.driver.implicitly_wait(5)
 
 
 def knopka_otmena_click():
@@ -218,7 +217,7 @@ def naimenovanie():
 
 def setevoy_addres():  # 1 #2
     if not hasattr(setevoy_addres, '_state'):  # инициализация значения
-        setevoy_addres._state = 0
+        setevoy_addres._state = 30
     setevoy_addres._state = setevoy_addres._state + 1
     setevoy_addresx = d.driver.find_element_by_xpath('//label[1]/input')
     setevoy_addresx.send_keys(Keys.CONTROL + "a")
@@ -228,7 +227,7 @@ def setevoy_addres():  # 1 #2
 
 def zavodskoy_addres():  # 1 #2
     if not hasattr(zavodskoy_addres, '_state'):  # инициализация значения
-        zavodskoy_addres._state = 0
+        zavodskoy_addres._state = 30
     zavodskoy_addres._state = zavodskoy_addres._state + 1
     try:
         zavodskoy_addresx = d.driver.find_element_by_xpath('//label[2]/input')  # Поле зав. номера

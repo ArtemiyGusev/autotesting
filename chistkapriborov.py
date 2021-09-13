@@ -19,7 +19,7 @@ while True:
             break
         time.sleep(1)
         knopka_ok_click()
-        time.sleep(1)
+        time.sleep(3)
         print("Прибор удален " + str(nomerpibora))
 
     except BaseException as e:
